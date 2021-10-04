@@ -1,15 +1,20 @@
-function maxSubarraySum(arr, num) {
+function maxSubarraySum(arr, lengthOfSubArray) {
   let maxSum = 0;
   let tempSum = 0;
-  if (arr.length < num) return null;
-  for (let i = 0; i < num; i++) {
+  if (arr.length < lengthOfSubArray) {
+    return null;
+  }
+
+  for (let i = 0; i < lengthOfSubArray; i++) {
     maxSum += arr[i];
   }
   tempSum = maxSum;
-  for (let i = num; i < arr.length; i++) {
-    tempSum = tempSum - arr[i - num] + arr[i];
+
+  for (let i = lengthOfSubArray; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - lengthOfSubArray] + arr[i];
     maxSum = Math.max(maxSum, tempSum);
   }
+
   return maxSum;
 }
 

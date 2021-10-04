@@ -1,5 +1,7 @@
 function maxSubarraySum(arr, num) {
-  if (arr.length < num) return null;
+  if (arr.length < num) {
+    return null;
+  }
 
   let total = 0;
   for (let i = 0; i < num; i++) {
@@ -12,6 +14,12 @@ function maxSubarraySum(arr, num) {
   }
   return total;
 }
+maxSubarraySum([100, 200,300,400], 2); // 700
+maxSubarraySum([1,4,2,10,23,3,1,0,20], 4); // 39
+maxSubarraySum([-3,4,0,-2,6,-1], 2); // 5
+maxSubarraySum([3,-2,7,-4,1,-1,4,-2,1],2); // 5
+maxSubarraySum([2,3], 3); // null
+
 
 function minSubArrayLen(nums, sum) {
   let total = 0;
@@ -41,6 +49,15 @@ function minSubArrayLen(nums, sum) {
 
   return minLen === Infinity ? 0 : minLen;
 }
+minSubArrayLen([2,3,1,2,4,3], 7); // 2 -> because [4,3] is the smallest subarray
+minSubArrayLen([2,1,6,5,4], 9); // 2 -> because [5,4] is the smallest subarray
+minSubArrayLen([3,1,7,11,2,9,8,21,62,33,19], 52); // 1 -> because [62] is greater than 52
+minSubArrayLen([1,4,16,22,5,7,8,9,10],39); // 3
+minSubArrayLen([1,4,16,22,5,7,8,9,10],55); // 5
+minSubArrayLen([4, 3, 3, 8, 1, 2, 3], 11); // 2
+minSubArrayLen([1,4,16,22,5,7,8,9,10],95); // 0
+
+
 
 function findLongestSubstring(str) {
   let longest = 0;
@@ -59,3 +76,10 @@ function findLongestSubstring(str) {
   }
   return longest;
 }
+findLongestSubstring(''); // 0
+findLongestSubstring('rithmschool'); // 7
+findLongestSubstring('thisisawesome'); // 6
+findLongestSubstring('thecatinthehat'); // 7
+findLongestSubstring('bbbbbb'); // 1
+findLongestSubstring('longestsubstring'); // 8
+findLongestSubstring('thisishowwedoit'); // 6
